@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     private var image_button: ImageButton?=null
     private var allert_button: Button?=null
     private var custom_button: Button?=null
+    private var progress_button:Button ?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         image_button=findViewById(R.id.snack_btn);
         allert_button=findViewById(R.id.alert)
         custom_button=findViewById(R.id.custom)
+        progress_button=findViewById(R.id.progress)
 
         image_button?.setOnClickListener{
             view->
@@ -35,6 +37,10 @@ class MainActivity : AppCompatActivity() {
         custom_button?.setOnClickListener{
             view->
             customDialogFunction()
+        }
+        progress_button?.setOnClickListener{
+            view->
+            custmDialogProgressDialogFunction()
         }
     }
 
@@ -79,5 +85,13 @@ class MainActivity : AppCompatActivity() {
         }
         //Start the dialog and display it on screen.
         customDialog.show()
+    }
+
+    private fun custmDialogProgressDialogFunction(){
+        val customProgressDialog = Dialog(this)
+
+        customProgressDialog.setContentView(R.layout.dialog_custom_progress)
+
+        customProgressDialog.show()
     }
 }
